@@ -1,0 +1,80 @@
+{% extends 'show/show_base.html' %}
+
+{% block content_body %}
+    <div class="about-section">
+        <div class="row">
+            <div class="col-md-8 col-sm-8">
+                <div class="box-content profile">
+                    <h3 class="widget-title">Learn about us</h3>
+                    <div class="profile-thumb">
+                        <img src="{{ url_for('static', filename='images/8.jpg') }}" alt="">
+                    </div>
+                    <div class="profile-content">
+                        <h5 class="profile-name">Linda Beauty</h5>
+                        <span class="profile-role">Creative Director</span>
+                        <p>Most of the images are from <a rel="nofollow" href="#">Unsplash.com</a> website. Curabitur auctor justo pretium purus varius sagittis. Aliquam porttitor leo sapien, hendrerit dapibus lorem.<br><br>
+                        Change icons by <a rel="nofollow" href="#/font-awesome-icon-world-map/">Font Awesome</a> (version 4). Example: <span class="blue">&lt;i class=&quot;fa fa-refresh&quot;&gt;&lt;/i&gt;</span></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-4">
+                <div class="box-content">
+                    <h3 class="widget-title">Background</h3>
+                    <p>Vestibulum pellentesque ante sit amet tristique hendrerit. Sed consequat, nunc lobortis faucibus pretium, enim nibh blandit est, nec sollicitudin est quam a neque. Aenean eget malesuada justo.</p>
+                    <div class="about-social">
+                        <ul>
+                            <li><a href="#" class="fa fa-facebook"></a></li>
+                            <li><a href="#" class="fa fa-twitter"></a></li>
+                            <li><a href="#" class="fa fa-linkedin"></a></li>
+                            <li><a href="#" class="fa fa-dribbble"></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-5 col-sm-5">
+                <div class="box-content">
+                    <h3 class="widget-title">Our Studio</h3>
+                    <div class="project-item">
+                        <img src="{{ url_for('static', filename='images/7.jpg') }}" alt="">
+                        <div class="project-hover">
+                            <h4>Great Nature Capture</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-7 col-sm-7">
+                <div class="box-content">
+                    <h3 class="widget-title">Our Technical Skills</h3>
+                    <ul class="progess-bars">
+                        <li>
+                            <span>HTML CSS 80%</span>
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%;"></div>
+                            </div>
+                        </li>
+                        <li>
+                            <span>PHOTOSHOP 95%</span>
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" style="width: 95%;"></div>
+                            </div>
+                        </li>
+                        <li>
+                            <span>WORDPRESS 70%</span>
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%;"></div>
+                            </div>
+                        </li>
+                        <li>
+                            <span>PHP mySQL 50%</span>
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%;"></div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

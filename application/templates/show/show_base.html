@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block page_content %}
+    <div class="col-md-9 col-sm-12 content-holder">
+        <div id="menu-container">
+            {% block content_body %}{% endblock %}
+        </div>
+    </div>
+
+    <div class="col-md-3 hidden-sm">
+        <nav id="nav" class="main-navigation hidden-xs hidden-sm">
+            <ul class="main-menu">
+                <li class="homebutton">
+                    <a href="{{ url_for('bpShow.home') }}"><i class="fa fa-home"></i>Home</a>
+                </li>
+                <li class="aboutbutton">
+                    <a href="{{ url_for('bpShow.info') }}"><i class="fa fa-user"></i>About Me</a>
+                </li>
+                <li class="projectbutton">
+                    <a href="{{ url_for('bpShow.gallery') }}"><i class="fa fa-camera"></i>Gallery</a>
+                </li>
+                <li class="contactbutton">
+                    <a href="{{ url_for('bpShow.contact') }}"><i class="fa fa-envelope"></i>Contact</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+{% endblock %}
