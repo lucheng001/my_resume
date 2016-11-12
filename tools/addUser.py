@@ -25,6 +25,7 @@ def addUsers():
             chinesename = user[1],
             role = CntRoles.ADMIN.label,
             permission=CntRoles.getRolePermission(CntRoles.ADMIN.label),
+            passwordHash = generate_password_hash(password),
             aboutMe = "Love Python and ArchLinux, good at kickboxing, swimming and like rock climbing."
         )
 

@@ -14,7 +14,8 @@
     <schema id="4" parent="1" name="public">
       <object-id>2200</object-id>
       <visible>1</visible>
-      <introspection-timestamp>2016-11-10.20:11:17.038</introspection-timestamp>
+      <introspection-state-number>1011</introspection-state-number>
+      <introspection-timestamp>2016-11-11.09:34:56.662</introspection-timestamp>
     </schema>
     <schema id="5" parent="1" name="pg_catalog">
       <object-id>11</object-id>
@@ -31,5 +32,193 @@
     <schema id="9" parent="1" name="information_schema">
       <object-id>12086</object-id>
     </schema>
+    <sequence id="10" parent="4" name="photo_id_seq">
+      <object-id>16753</object-id>
+      <state-number>1003</state-number>
+    </sequence>
+    <sequence id="11" parent="4" name="project_id_seq">
+      <object-id>16776</object-id>
+      <state-number>1009</state-number>
+    </sequence>
+    <sequence id="12" parent="4" name="user_id_seq">
+      <object-id>16761</object-id>
+      <state-number>1004</state-number>
+    </sequence>
+    <table id="13" parent="4" name="photo">
+      <object-id>16755</object-id>
+      <state-number>1003</state-number>
+    </table>
+    <table id="14" parent="4" name="project">
+      <object-id>16778</object-id>
+      <state-number>1009</state-number>
+    </table>
+    <table id="15" parent="4" name="user">
+      <object-id>16763</object-id>
+      <state-number>1009</state-number>
+    </table>
+    <column id="16" parent="13" name="id">
+      <state-number>1003</state-number>
+      <mandatory>1</mandatory>
+      <data-type>integer|0</data-type>
+      <default-expression>nextval(&apos;photo_id_seq&apos;::regclass)</default-expression>
+    </column>
+    <column id="17" parent="13" name="createTime">
+      <state-number>1003</state-number>
+      <mandatory>1</mandatory>
+      <data-type>time|0</data-type>
+    </column>
+    <index id="18" parent="13" name="photo_pkey">
+      <object-id>16759</object-id>
+      <columns>id</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <key id="19" parent="13" name="photo_pkey">
+      <object-id>16760</object-id>
+      <columns>id</columns>
+      <underlying-index>photo_pkey</underlying-index>
+      <primary>1</primary>
+    </key>
+    <column id="20" parent="14" name="id">
+      <state-number>1009</state-number>
+      <mandatory>1</mandatory>
+      <data-type>integer|0</data-type>
+      <default-expression>nextval(&apos;project_id_seq&apos;::regclass)</default-expression>
+    </column>
+    <column id="21" parent="14" name="name">
+      <state-number>1009</state-number>
+      <mandatory>1</mandatory>
+      <data-type>varchar(256)|0</data-type>
+    </column>
+    <column id="22" parent="14" name="createTime">
+      <state-number>1009</state-number>
+      <mandatory>1</mandatory>
+      <data-type>time|0</data-type>
+    </column>
+    <column id="23" parent="14" name="author_id">
+      <state-number>1009</state-number>
+      <mandatory>1</mandatory>
+      <data-type>integer|0</data-type>
+    </column>
+    <index id="24" parent="14" name="project_pkey">
+      <object-id>16782</object-id>
+      <columns>id</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <index id="25" parent="14" name="project_name">
+      <object-id>16789</object-id>
+      <columns>name</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <index id="26" parent="14" name="project_author_id">
+      <object-id>16790</object-id>
+      <columns>author_id</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <key id="27" parent="14" name="project_pkey">
+      <object-id>16783</object-id>
+      <columns>id</columns>
+      <underlying-index>project_pkey</underlying-index>
+      <primary>1</primary>
+    </key>
+    <foreign-key id="28" parent="14" name="project_author_id_fkey">
+      <object-id>16784</object-id>
+      <columns>author_id</columns>
+      <ref-key>~.user.user_pkey</ref-key>
+      <cascade-update-rule>restrict</cascade-update-rule>
+      <cascade-delete-rule>restrict</cascade-delete-rule>
+    </foreign-key>
+    <column id="29" parent="15" name="id">
+      <state-number>1004</state-number>
+      <mandatory>1</mandatory>
+      <data-type>integer|0</data-type>
+      <default-expression>nextval(&apos;user_id_seq&apos;::regclass)</default-expression>
+    </column>
+    <column id="30" parent="15" name="username">
+      <state-number>1004</state-number>
+      <mandatory>1</mandatory>
+      <data-type>varchar(16)|0</data-type>
+    </column>
+    <column id="31" parent="15" name="chinesename">
+      <state-number>1004</state-number>
+      <mandatory>1</mandatory>
+      <data-type>varchar(32)|0</data-type>
+    </column>
+    <column id="32" parent="15" name="permission">
+      <state-number>1004</state-number>
+      <mandatory>1</mandatory>
+      <data-type>integer|0</data-type>
+    </column>
+    <column id="33" parent="15" name="sex">
+      <state-number>1004</state-number>
+      <mandatory>1</mandatory>
+      <data-type>boolean|0</data-type>
+    </column>
+    <column id="34" parent="15" name="tel">
+      <state-number>1004</state-number>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="35" parent="15" name="email">
+      <state-number>1004</state-number>
+      <data-type>varchar(50)|0</data-type>
+    </column>
+    <column id="36" parent="15" name="aboutMe">
+      <state-number>1004</state-number>
+      <data-type>text|0</data-type>
+    </column>
+    <column id="37" parent="15" name="role">
+      <state-number>1004</state-number>
+      <mandatory>1</mandatory>
+      <data-type>varchar(32)|0</data-type>
+    </column>
+    <column id="38" parent="15" name="passwordHash">
+      <state-number>1004</state-number>
+      <mandatory>1</mandatory>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="39" parent="15" name="lastLoginTime">
+      <state-number>1004</state-number>
+      <mandatory>1</mandatory>
+      <data-type>time|0</data-type>
+    </column>
+    <column id="40" parent="15" name="createTime">
+      <state-number>1004</state-number>
+      <mandatory>1</mandatory>
+      <data-type>time|0</data-type>
+    </column>
+    <index id="41" parent="15" name="user_pkey">
+      <object-id>16770</object-id>
+      <columns>id</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <index id="42" parent="15" name="user_username">
+      <object-id>16772</object-id>
+      <columns>username</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <index id="43" parent="15" name="user_chinesename">
+      <object-id>16773</object-id>
+      <columns>chinesename</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <index id="44" parent="15" name="user_tel">
+      <object-id>16774</object-id>
+      <columns>tel</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <index id="45" parent="15" name="user_role">
+      <object-id>16775</object-id>
+      <columns>role</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <key id="46" parent="15" name="user_pkey">
+      <object-id>16771</object-id>
+      <columns>id</columns>
+      <underlying-index>user_pkey</underlying-index>
+      <primary>1</primary>
+    </key>
   </database-model>
 </dataSource>

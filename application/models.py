@@ -5,11 +5,13 @@ from peewee import *
 from .constants import CntRoles
 from .extensions import db
 
+_all_ = ['User', 'Project', 'Model']
+
 class User(Model):
     id = PrimaryKeyField()
     username = CharField(max_length=16, unique=True, index=True)
     chinesename = CharField(max_length=32, index=True)
-    permession = IntegerField(default=0)
+    permission = IntegerField(default=0)
     sex = BooleanField(default=1)
     tel = CharField(index=True, null=True)
     email = CharField(max_length=50, null=True)
