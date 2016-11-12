@@ -1,0 +1,34 @@
+编码：
+统一编码格式,在程序开头加上：
+# -*- coding: utf-8 -*-
+
+顺序很重要:
+按照一定的导入顺序能减小出错的概率，当你导入顺序不恰当时，程序运行时需要某些部分配置好例如数据库：
+如果把config_blueprint() 放在 config_extensions() 前面，当你运行程序时首先运行的url，然后里面已经调用了数据库，但是由于你运行url时
+只需要配置好blueprint所以此时有可能config_extensions（）里面的db没配置好导致database未正常连接，所以就会出现no such table:* 的
+error。
+
+一般导入顺序如下：
+import *
+from * import *
+from ..models import *
+from . import *
+
+config 顺序:
+def create_app(config_name):
+    """Creates the app."""
+
+    app = Flask(__name__)
+    app.config.from_object(config[config_name])
+    # config[config_name].init_app(app)
+
+    configure_extensions(app)
+    configure_blueprints(app)
+    configure_template_filters(app)
+    configure_template_global_variables(app)
+    configure_context_processors(app)
+    configure_before_handlers(app)
+    configure_error_handlers(app)
+    configure_logging(app)
+
+    return app
