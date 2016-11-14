@@ -26,6 +26,8 @@ def addUsers():
             role = CntRoles.ADMIN.label,
             permission=CntRoles.getRolePermission(CntRoles.ADMIN.label),
             passwordHash = generate_password_hash(password),
+            tel = "18487300572",
+            email = "lc960127@gmail.com",
             aboutMe = "Love Python and ArchLinux, good at kickboxing, swimming and like rock climbing."
         )
 

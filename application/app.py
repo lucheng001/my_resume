@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from flask import Flask
-from .extensions import db, lm
+from .extensions import db, lm, csrf
 from .configuration import config
 
 _all_ = ['create_app']
@@ -33,6 +33,7 @@ def configure_template_filters(app):
 
 def config_extensions(app):
     db.init_app(app)
+    csrf.init_app(app)
     lm.init_app(app)
     lm.session_protection = 'strong'
     lm.login_view = 'bpAuth.login'

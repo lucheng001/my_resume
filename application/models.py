@@ -2,12 +2,14 @@
 
 import datetime
 from peewee import *
+from flask_login import UserMixin
+from werkzeug.security import check_password_hash
 from .constants import CntRoles
 from .extensions import db
 
 _all_ = ['User', 'Project', 'Model']
 
-class User(Model):
+class User(UserMixin, Model):
     id = PrimaryKeyField()
     username = CharField(max_length=16, unique=True, index=True)
     chinesename = CharField(max_length=32, index=True)
@@ -20,6 +22,9 @@ class User(Model):
     passwordHash = CharField(max_length=255)
     lastLoginTime = TimeField(default=datetime.datetime.min, formats='%Y-%m-%d %H:%M:%S')
     createTime = TimeField(default=datetime.datetime.now, formats='%Y-%m-%d %H:%M:%S')
+
+    def verifyPassword(self, password):
+        return check_password_hash(self.passwordHash, password)
 
     class Meta:
         database = db.database

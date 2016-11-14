@@ -32,7 +32,11 @@
                                 <li><a href="#" class="fa fa-github"></a></li>
                                 <li><a href="#" class="fa fa-bitbucket"></a></li>
                                 <li><a href="#" class="fa fa-google-plus"></a></li>
-                                <li><a href="#" class="fa fa-sign-out"></a></li>
+                                {% if current_user.is_authenticated %}
+                                <li><a href="{{ url_for('bpAuth.logout') }}" class="fa fa-sign-out"></a></li>
+                                {% else %}
+                                <li><a href="{{ url_for('bpAuth.login') }}" class="fa fa-user"></a></li>
+                                {% endif %}
                             </ul>
                         </div>
                     </div>
@@ -74,7 +78,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 text-center">
-                        <p>Copyright &copy; 2016 lucheng  |  mail: lc960127@gmail.com  |   WeChat:  LC_WeChat_0127</p>
+                        <p>Copyright &copy; 2016 lucheng  |  mail: lc960127@gmail.com  |   WeChat:  LC_WeChat_0127   |  Bitbucket: <a href="https://bitbucket.org/lucheng0127">https://bitbucket.org/lucheng0127</a></p>
                     </div>
                 </div>
             </div>

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block page_content %}
+    <div class="logo-holder logo-top-margin">
+        <a href="{{ url_for('bpShow.home') }}" class="site-brand"><img src="{{ url_for('static', filename='images/logo.jpg') }}"></a>
+    </div>
+    <div class="text-center row">
+        {% with messages = get_flashed_messages(with_categories = True) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <span class="text-danger"><b>{{ category }}:</b>{{ message }}</span>
+            {% endfor %}
+        {% endif %}
+        {% endwith %}
+        <form class="subscribe-form" action="{{ url_for('bpAuth.login') }}" method="post">
+            {{ form.csrf_token }}
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <label>Username:</label>
+                <input type="text" class="email" name="username" placeholder="Username">
+                <label>Password:</label>
+                <input type="password" class="email" name="password" placeholder="Password">
+                <input type="submit" class="button default" value="Login">
+            </div>
+        </form>
+    </div>
+{% endblock %}
