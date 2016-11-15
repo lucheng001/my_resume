@@ -24,6 +24,9 @@ def login():
             user.lastLoginTime = datetime.datetime.now()
             user.save()
             login_user(user)
+            if form.password.data == current_app.config['DEFAULT_PASSWORD']:
+                flash('Please change your password!','message')
+                return redirect(url_for('bpUser.changePassword'))
             return redirect(url_for('bpShow.home'))
 
         elif user:
