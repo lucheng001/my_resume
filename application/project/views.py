@@ -41,9 +41,9 @@ def addProject():
                 if author.chinesename == authorName:
                     authorId = author.id
                     break
-                else:
-                    badData.append(line)
-                    continue
+            else:
+                badData.append(line)
+                continue
 
             projectDict = dict(
                 name = projectName,

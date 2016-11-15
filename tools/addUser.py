@@ -6,8 +6,8 @@ from application.extensions import db
 from application.constants import CntRoles
 
 grop1 = [
-    ('admin', '管理员'),
-    ('lc', '鲁成')
+    ('admin', u'管理员'),
+    ('lc', u'鲁成')
 ]
 
 def addUsers():
