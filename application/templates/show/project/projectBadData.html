@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block page_content %}
+    <div class="container">
+        <div class="row">
+            {% with messages = get_flashed_messages(with_categories = True) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <span class="text-danger"><b>{{ category }}:</b>{{ message }}</span>
+                {% endfor %}
+            {% endif %}
+            {% endwith %}
+            <div class="col-md-12 text-center">
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                    <b><h1>Add project data</h1></b><br>
+                    <h1>格式如下：(逗号为英文逗号)<br>项目名称,项目负责人</h1>
+                </div>
+            </div>
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <div>
+                    <label>
+                    项目数据
+                    </label><br>
+                    <form method="post" action="{{ url_for('bpProject.addProject') }}">
+                        <textarea name="projectData" rows="5" class="form-control" readonly>{{ badData|join('\n') }}</textarea>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
