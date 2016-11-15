@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import datetime
-from flask import render_template, redirect, url_for, flash, request
+from flask import render_template, redirect, url_for, flash, request, current_app
 from flask_login import  current_user, login_user, logout_user, login_required
 from ..models import User
 from .forms import LoginForm
@@ -16,7 +16,8 @@ def login():
             user = User.get(User.username == form.username.data)
         except:
             user = None
-            msg = 'login failed, no such user'
+            msg = 'login failed, no such user:{0}'
+            current_app.logger.warning(msg.format(form.username.data))
             flash('no such user', 'error')
 
         if user and user.verifyPassword(form.password.data):
@@ -26,10 +27,11 @@ def login():
             return redirect(url_for('bpShow.home'))
 
         elif user:
-            msg = 'login failed, password not match'
+            msg = 'login failed, password not match, username:{0}'
+            current_app.logger.warning(msg.format(form.username.data))
             flash('password not match')
 
-    return  render_template('auth/login.html', form = form)
+    return  render_template('auth/login.html', form=form)
 
 @bpAuth.route('/logout')
 @login_required

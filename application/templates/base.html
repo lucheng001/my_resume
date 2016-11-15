@@ -33,9 +33,10 @@
                                 <li><a href="#" class="fa fa-bitbucket"></a></li>
                                 <li><a href="#" class="fa fa-google-plus"></a></li>
                                 {% if current_user.is_authenticated %}
-                                <li><a href="{{ url_for('bpAuth.logout') }}" class="fa fa-sign-out"></a></li>
+                                    <li><a href="{{ url_for('bpUser.changePassword') }}" class="fa fa-th-list"></a></li>
+                                    <li><a href="{{ url_for('bpAuth.logout') }}" class="fa fa-sign-out"></a></li>
                                 {% else %}
-                                <li><a href="{{ url_for('bpAuth.login') }}" class="fa fa-user"></a></li>
+                                    <li><a href="{{ url_for('bpAuth.login') }}" class="fa fa-user"></a></li>
                                 {% endif %}
                             </ul>
                         </div>

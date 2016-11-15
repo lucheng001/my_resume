@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+import os
+import logging
 from flask import Flask
 from .extensions import db, lm, csrf
 from .configuration import config
@@ -26,6 +28,9 @@ def config_blueprint(app):
     from .auth import bpAuth as authBlueprint
     app.register_blueprint(authBlueprint, url_prefix='/auth')
 
+    from .user import bpUser as userBlueprint
+    app.register_blueprint(userBlueprint, url_prefix='/user')
+
 
 def configure_template_filters(app):
     """Configures the template filters."""
@@ -48,3 +53,29 @@ def config_extensions(app):
         except:
             user = None
         return user
+
+def config_logging(app):
+    from logging.handlers import RotatingFileHandler
+
+    logsFolder = app.config['APP_LOG_DIR']
+    formatter = app.config['APP_LOG_FORMATTER']
+
+    infoLog = os.path.join(logsFolder, app.config['APP_LOG_INFO'])
+    infoFileHandler = RotatingFileHandler(
+        infoLog,
+        maxBytes=app.config['APP_LOG_SIZE'],
+        backupCount=10
+    )
+    infoFileHandler.setLevel(logging.INFO)
+    infoFileHandler.setFormatter(formatter)
+    app.logger.addHandler(infoFileHandler)
+
+    errorLog = os.path.join(logsFolder, app.config['APP_LOG_ERROR'])
+    errorFileHandler = RotatingFileHandler(
+        errorLog,
+        maxBytes=app.config['APP_LOG_SIZE'],
+        backupCount=10
+    )
+    errorFileHandler.setLevel(logging.ERROR)
+    errorFileHandler.setFormatter(formatter)
+    app.logger.addHandler(errorFileHandler)
