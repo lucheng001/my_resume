@@ -53,16 +53,16 @@
             <div class="show-menu">
                 <ul class="main-menu">
                     <li>
-                        <a href="#"><i class="fa fa-home"></i>Home</a>
+                        <a href="{{ url_for('bpShow.home') }}"><i class="fa fa-home"></i>Home</a>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-user"></i>About Me</a>
+                        <a href="{{ url_for('bpShow.info') }}"><i class="fa fa-user"></i>About Me</a>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-camera"></i>Gallery</a>
+                        <a href="{{ url_for('bpShow.gallery') }}"><i class="fa fa-camera"></i>Gallery</a>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-envelope"></i>Contact</a>
+                        <a href="{{ url_for('bpShow.contact') }}"><i class="fa fa-envelope"></i>Contact</a>
                     </li>
                 </ul>
             </div>

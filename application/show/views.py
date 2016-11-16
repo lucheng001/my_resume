@@ -13,13 +13,13 @@ def home():
 @bpShow.route('/info')
 def info():
     try:
-        me = get_object_or_404(User, User.id == current_user.id)
+        me = User.get(User.id == current_user.id)
         if me:
             user = me
     except:
         user = User.get(User.username == 'lc')
 
-    query = Project.select().join(User).where(User.id == current_user.id)
+    query = Project.select().join(User).where(User.id == user.id)
     projects = [row for row in query]
 
     return render_template('show/info.html', user=user, projects=projects)

@@ -4,4 +4,4 @@ from flask import  Blueprint
 
 bpProject = Blueprint('bpProject', __name__)
 
-from . import views
+from . import views, views_file_control
