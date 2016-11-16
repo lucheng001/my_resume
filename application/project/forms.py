@@ -23,7 +23,7 @@ class addProjectForm(Form):
         ]
     )
 
-    author = StringField(
+    author = SelectField(
         u'项目负责人',
         validators=[
             DataRequired(u'项目负责人不能为空')

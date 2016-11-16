@@ -32,3 +32,8 @@ def create_app(config_name):
     configure_logging(app)
 
     return app
+
+
+
+关于外键:
+创建时外键的form要用SelectField,如果直接用StringField里面要是存储的是id就只有id，但是SelectField前面可以用Form.author.choise（）定义一个元组

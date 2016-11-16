@@ -3,7 +3,7 @@
 from flask import render_template, url_for, redirect
 from playhouse.flask_utils import get_object_or_404
 from flask_login import current_user
-from ..models import User
+from ..models import User, Project
 from . import bpShow
 
 @bpShow.route('/home')
@@ -15,10 +15,14 @@ def info():
     try:
         me = get_object_or_404(User, User.id == current_user.id)
         if me:
-            return render_template('show/info.html', user=me)
+            user = me
     except:
         user = User.get(User.username == 'lc')
-    return render_template('show/info.html', user=user)
+
+    query = Project.select().join(User).where(User.id == current_user.id)
+    projects = [row for row in query]
+
+    return render_template('show/info.html', user=user, projects=projects)
 
 @bpShow.route('/gallery')
 def gallery():

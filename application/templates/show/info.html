@@ -44,9 +44,32 @@
             </div>
             <div class="col-md-6 col-sm-6">
                 <div class="box-content">
-                    <h3 class="widget-title">My Project Experience</h3>
+                    <h3 class="widget-title">My Project Experience   |    <a href="{{ url_for('bpProject.addProject') }}" class="fa fa-plus"></a></h3>
                     <p>What I mean a true experience of project.</p>
-
+                    {% if projects %}
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>项目名称</th>
+                                    <th>项目负责人</th>
+                                    <th>项目总结</th>
+                                </tr>
+                            </thead>
+                        <tbody>
+                            {% for project in projects %}
+                                <tr>
+                                    <th>{{ project.name }}</th>
+                                    <th>{{ project.author.chinesename }}</th>
+                                    <th>
+                                        <a href="#" class="fa fa-upload"></a>
+                                        <a href="#" class="fa fa-download"></a>
+                                        <a href="#" class="fa fa-exclamation-circle"></a>
+                                    </th>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                        </table>
+                    {% endif %}
                 </div>
             </div>
         </div>

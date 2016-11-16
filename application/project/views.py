@@ -51,8 +51,9 @@ def addProject():
             )
 
             projectForm = addProjectForm()
-            projectForm.name.data = projectDict['name']
+            projectForm.author.choices = [(author.id, author.chinesename) for author in authors]
             projectForm.author.data = projectDict['author']
+            projectForm.name.data = projectDict['name']
 
             if not projectForm.validate():
                 badData.append(line)
@@ -86,4 +87,4 @@ def addProject():
             flash(msg.format(len(lines), len(goodData), len(badData)), 'success')
             return redirect(url_for('bpProject.addProject'))
 
-    return render_template('show/project/addProject.html', form=form)
+    return render_template('show/project/addProject.html', form=form, user=current_user)
