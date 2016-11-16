@@ -9,16 +9,11 @@
             <h2>Welcome to <strong>wolf space</strong></h2>
             <p>(Like Python || ArchLinux || kickboxing || rocking climbing || swimming || outdoors)?</p>
             <p>Get in touch with me : Just look through or leave</p>
-            <form action="#" method="get" class="subscribe-form">
-                <div class="row">
-                    <fieldset class="col-md-offset-2 col-md-6">
-                        <input name="subscribe-email" type="email" class="email" id="subscribe-email" placeholder="Write your email here..">
-                    </fieldset>
-                    <fieldset class="col-md-4 button-holder">
-                        <input name="submit" type="submit" class="button default" id="submit" value="Submit">
-                    </fieldset>
-                </div>
-            </form>
+            <br>
+            <br>
+            <p><b>Know more about me:</b></p>
+            <br>
+            <a href="{{ url_for('bpShow.info') }}" class="btn btn-primary">Next-></a>
         </div>
     </div>
 {% endblock %}
