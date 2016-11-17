@@ -27,7 +27,7 @@ def login():
             if form.password.data == current_app.config['DEFAULT_PASSWORD']:
                 flash('Please change your password!','message')
                 return redirect(url_for('bpUser.changePassword'))
-            return redirect(url_for('bpShow.home'))
+            return redirect(url_for('bpShow.info'))
 
         elif user:
             msg = 'login failed, password not match, username:{0}'
@@ -40,4 +40,4 @@ def login():
 @login_required
 def logout():
     logout_user()
-    return redirect(url_for('bpShow.home'))
+    return redirect(url_for('bpShow.info'))

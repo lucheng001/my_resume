@@ -18,7 +18,7 @@ def changePassword():
             newPasswordHash = generate_password_hash(form.newPassword.data)
             user.passwordHash = newPasswordHash
             user.save()
-            return redirect(url_for('bpShow.home'))
+            return redirect(url_for('bpShow.info'))
         else:
             flash('Old password not match!', 'error')
             return redirect(url_for('bpUser.changePassword'))

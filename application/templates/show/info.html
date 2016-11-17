@@ -6,7 +6,7 @@
             <div class="col-md-8 col-sm-8">
                 <div class="profile">
                     <div class="col-md-4">
-                        <img src="{{ url_for('static', filename='images/me.jpg') }}" alt="">
+                        <a href="{{ url_for('bpUser.resetProfile') }}"><img src="{{ url_for('static', filename='images/me.jpg') }}" alt=""></a>
                         <br>
                         <br>
                         <p class="text-center">{{ user.aboutMe }}</p>

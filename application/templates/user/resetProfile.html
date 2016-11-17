@@ -1,4 +1,4 @@
-{% extends'base.html' %}
+{% extends 'base.html' %}
 
 {% block page_content %}
     <div class="logo-holder logo-top-margin">
@@ -13,14 +13,18 @@
             {% endfor %}
         {% endif %}
         {% endwith %}
-        <form class="subscribe-form" action="{{ url_for('bpUser.changePassword') }}" method="post" userId=current_user.id>
+        <form class="subscribe-form" action="{{ url_for('bpUser.resetProfile') }}" method="post">
             {{ form.csrf_token }}
             <div class="col-md-4"></div>
             <div class="col-md-4">
-                <label>Old Password:</label>
-                <input type="password" class="email" name="oldPassword" placeholder="Old Password">
-                <label>New Password:</label>
-                <input type="password" class="email" name="newPassword" placeholder="New Password">
+                <label>姓名:</label>
+                <input type="text" class="email" name="chinesename" placeholder="姓名">
+                <label>About Me:</label>
+                <input type="text" class="email" name="aboutMe" placeholder="About Me">
+                <label>Tel:</label>
+                <input type="text" class="email" name="tel" placeholder="Tel">
+                <label>Email:</label>
+                <input type="text" class="email" name="email" placeholder="Email">
                 <input type="submit" class="button default" value="Subimt">
             </div>
         </form>
