@@ -1,8 +1,10 @@
 # -*- coding: utf-8 -*-
 
 from flask_wtf import Form
+from flask_wtf.file import FileRequired, FileAllowed, FileField
 from wtforms import StringField, TextAreaField, SelectField
 from wtforms.validators import DataRequired, Length
+from ..constants import CntAllowExtensions
 
 _all_=['addProjectDataForm', 'addProjectForm']
 
@@ -27,5 +29,14 @@ class addProjectForm(Form):
         u'项目负责人',
         validators=[
             DataRequired(u'项目负责人不能为空')
+        ]
+    )
+
+class uploadFileForm(Form):
+    file = FileField(
+        u'项目总结',
+        validators=[
+            FileRequired(u'必须上传文件'),
+            FileAllowed(CntAllowExtensions.choices, u'不允许上传此类文件')
         ]
     )

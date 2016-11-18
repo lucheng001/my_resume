@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+import os
 import datetime
 from peewee import *
 from flask_login import UserMixin
@@ -34,6 +35,12 @@ class Project(Model):
     name = CharField(max_length=256, index=True)
     createTime = TimeField(default=datetime.datetime.now, formats='%Y-%m-%d %H:%M:%S')
     author = ForeignKeyField(User)
+
+    def getProjectName(self):
+        return self.name
+
+    def getFilePath(self):
+        return os.path.join(self.author.chinesename, self.name)
 
     class Meta:
         database = db.database

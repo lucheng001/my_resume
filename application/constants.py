@@ -36,3 +36,15 @@ class CntRoles(object):
     @classmethod
     def getRolePermission(cls, label):
         return cls._maps[label].permissions if label in CntRoles.labels else 0b0
+
+class CntAllowExtensions(object):
+    TEXT_TYPE = ['txt', 'pdf']
+    MSOFFICE_TYPE = ['doc', 'docx', 'xls', 'xlsx', 'ppt', 'pptx']
+    IMAGE_TYPE = ['bmp', 'gif', 'jpg', 'jpeg', 'png', 'svg']
+    COMPRESS_TYPE = ['7z', 'rar', 'zip', 'bz2', 'gz', 'tar']
+
+    _extensions = TEXT_TYPE + MSOFFICE_TYPE + IMAGE_TYPE + COMPRESS_TYPE
+    _obects = list(set(_extensions + [ext.upper() for ext in _extensions]))
+
+    choices = _obects
+    labels = _obects

@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block page_content %}
+    <div class="logo-holder logo-top-margin">
+        <a href="{{ url_for('bpShow.info') }}" class="site-brand"><img src="{{ url_for('static', filename='images/logo.jpg') }}"></a>
+    </div>
+    <div class="container">
+        <div class="row">
+            {% with messages = get_flashed_messages(with_categories = True) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <span class="text-danger"><b>{{ category }}:</b>{{ message }}</span>
+                {% endfor %}
+            {% endif %}
+            {% endwith %}
+            <div class="col-md-12 text-center">
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                    <label>上传项目总结</label>
+                </div>
+            </div>
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <a href="#" class="btn btn-primary">下载旧材料</a>
+                <form class="subscribe-form" method="post" action="{{ url_for('bpProject.upload', projectId=project.id) }}" enctype="multipart/form-data">
+                    {{ form.csrf_token }}
+                    {{ form.file }}
+                    <button class="btn btn-primary" type="submit">上传</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

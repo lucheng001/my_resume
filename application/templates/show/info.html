@@ -63,7 +63,7 @@
                                     <th>{{ project.name }}</th>
                                     <th>{{ project.author.chinesename }}</th>
                                     <th>
-                                        <a href="#" class="fa fa-upload"></a>
+                                        <a href="{{ url_for('bpProject.upload', projectId=project.id) }}" class="fa fa-upload"></a>
                                         <a href="#" class="fa fa-download"></a>
                                         <a href="#" class="fa fa-exclamation-circle"></a>
                                     </th>
