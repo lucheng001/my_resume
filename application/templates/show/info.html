@@ -63,9 +63,10 @@
                                     <th>{{ project.name }}</th>
                                     <th>{{ project.author.chinesename }}</th>
                                     <th>
+                                        {% if current_user.is_authenticated  %}
                                         <a href="{{ url_for('bpProject.upload', projectId=project.id) }}" class="fa fa-upload"></a>
-                                        <a href="#" class="fa fa-download"></a>
-                                        <a href="#" class="fa fa-exclamation-circle"></a>
+                                        {% endif %}
+                                        <a href="{{ url_for('bpProject.download', projectId=project.id) }}" class="fa fa-download"></a>
                                     </th>
                                 </tr>
                             {% endfor %}
