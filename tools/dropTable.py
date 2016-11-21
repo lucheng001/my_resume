@@ -5,10 +5,10 @@ from application.extensions import db
 
 def dropTables():
     app = create_app('default')
-    from application.models import (User, Project, Photo)
+    from application.models import (User, Project, Photo, Diary)
     database = db.database
     database.connect()
-    database.drop_tables([User, Project, Photo], safe=True)
+    database.drop_tables([User, Project, Photo, Diary], safe=True)
     database.close()
 
 if __name__ =='__main__':

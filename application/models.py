@@ -51,3 +51,12 @@ class Photo(Model):
 
     class Meta:
         database = db.database
+
+class Diary(Model):
+    id = PrimaryKeyField()
+    body = TextField()
+    createTime = TimeField(default=datetime.datetime.now, formats='%Y-%m-%d %H:%M:%S')
+    author = ForeignKeyField(User)
+
+    class Meta:
+        database = db.database
