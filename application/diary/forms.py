@@ -3,6 +3,7 @@
 from flask_wtf import Form
 from wtforms import TextAreaField, SelectField
 from wtforms.validators import DataRequired
+from flask_wtf.file import FileField
 
 _all_=['addProjectDataForm', 'addProjectForm']
 
@@ -13,6 +14,8 @@ class addDiaryForm(Form):
             DataRequired(u'日记能为空')
         ]
     )
+
+    photo = FileField(u'图片')
 
 class addDiaryDataForm(Form):
     body = TextAreaField(

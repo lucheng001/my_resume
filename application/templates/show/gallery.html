@@ -34,11 +34,23 @@
                     <h3 class="widget-title">It's my life ! <a href="{{ url_for('bpDiary.addDiary') }}" class="fa fa-pencil"></a></h3>
                     {% for diary in diarys %}
                          <div class="project-item">
-                            <label>
-                                {{ diary.body }}
-                            </label>
-                            <p>{{ diary.createTime }}</p>
+                            <div class="col-md-8">
+                                <label>
+                                    {{ diary.body }}
+                                </label>
+                                <div class="col-md-2"></div>
+                                <div class="col-md-8">
+                                    {% if diary.havePhoto %}
+                                        <img src="{{ url_for('static', filename=diary.photoURL ) }}" alt="">
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <p>{{ diary.createTime }}</p>
+                                <a href="#" class="fa fa-trash"></a>
+                            </div>
                         </div>
+                        <br>
                     {% endfor %}
                     <div class="project-pages">
                         <ul>

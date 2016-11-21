@@ -21,8 +21,8 @@ class User(UserMixin, Model):
     aboutMe = TextField(null=True)
     role = CharField(max_length=32, index=True, choices=CntRoles.choices, default=CntRoles.USER.label)
     passwordHash = CharField(max_length=255)
-    lastLoginTime = TimeField(default=datetime.datetime.min, formats='%Y-%m-%d %H:%M:%S')
-    createTime = TimeField(default=datetime.datetime.now, formats='%Y-%m-%d %H:%M:%S')
+    lastLoginTime = DateTimeField(default=datetime.datetime.min, formats='%Y-%m-%d %H:%M:%S')
+    createTime = DateTimeField(default=datetime.datetime.now, formats='%Y-%m-%d %H:%M:%S')
 
     def verifyPassword(self, password):
         return check_password_hash(self.passwordHash, password)
@@ -33,7 +33,7 @@ class User(UserMixin, Model):
 class Project(Model):
     id = PrimaryKeyField()
     name = CharField(max_length=256, index=True)
-    createTime = TimeField(default=datetime.datetime.now, formats='%Y-%m-%d %H:%M:%S')
+    createTime = DateTimeField(default=datetime.datetime.now, formats='%Y-%m-%d %H:%M:%S')
     author = ForeignKeyField(User, related_name='projects')
 
     def getProjectName(self):
@@ -47,7 +47,8 @@ class Project(Model):
 
 class Photo(Model):
     id = PrimaryKeyField()
-    createTime = TimeField(default=datetime.datetime.now, formats='%Y-%m-%d %H:%M:%S')
+    describe = TextField(null=True)
+    createTime = DateTimeField(default=datetime.datetime.now, formats='%Y-%m-%d %H:%M:%S')
 
     class Meta:
         database = db.database
@@ -55,7 +56,9 @@ class Photo(Model):
 class Diary(Model):
     id = PrimaryKeyField()
     body = TextField()
-    createTime = TimeField(default=datetime.datetime.now, formats='%Y-%m-%d %H:%M:%S')
+    havePhoto = BooleanField(default=0)
+    photoURL = CharField(null=True)
+    createTime = DateTimeField(default=datetime.datetime.now, formats='%Y-%m-%d %H:%M:%S')
     author = ForeignKeyField(User, related_name='diarys')
 
     class Meta:

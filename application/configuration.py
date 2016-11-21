@@ -13,6 +13,7 @@ class Configuration(object):
     APP_UPLOAD_DIR = os.path.join(APP_DIR, u'uploads')
     APP_PROJECT_DIR = os.path.join(APP_UPLOAD_DIR, u'project')
     APP_ARCHIVE_DIR = os.path.join(APP_UPLOAD_DIR, u'.archive')
+    APP_DIARY_PHOTO_DIR = os.path.join(APP_DIR, u'static', u'diaryPhoto')
     APP_TPL_DIR = os.path.join(APP_UPLOAD_DIR, u'.tpl')
     APP_PROJECT_TPL = os.path.join(APP_TPL_DIR, u'project')
     APP_LOG_INFO = os.path.join(APP_LOG_DIR, u'info.app.log')

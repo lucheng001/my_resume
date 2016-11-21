@@ -22,9 +22,10 @@
             <div class="col-md-4"></div>
             <div class="col-md-4">
                 <div>
-                    <form method="post" action="{{ url_for('bpDiary.addDiary') }}">
+                    <form method="post" action="{{ url_for('bpDiary.addDiary') }}" enctype="multipart/form-data">
                         {{ form.csrf_token }}
                         <textarea name="diaryData" rows="5" class="form-control" required></textarea>
+                        {{ form.photo }}
                         <button class="btn btn-primary" type="submit">Add</button>
                     </form>
                 </div>
