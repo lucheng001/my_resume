@@ -34,7 +34,7 @@ class Project(Model):
     id = PrimaryKeyField()
     name = CharField(max_length=256, index=True)
     createTime = TimeField(default=datetime.datetime.now, formats='%Y-%m-%d %H:%M:%S')
-    author = ForeignKeyField(User)
+    author = ForeignKeyField(User, related_name='projects')
 
     def getProjectName(self):
         return self.name
@@ -56,7 +56,7 @@ class Diary(Model):
     id = PrimaryKeyField()
     body = TextField()
     createTime = TimeField(default=datetime.datetime.now, formats='%Y-%m-%d %H:%M:%S')
-    author = ForeignKeyField(User)
+    author = ForeignKeyField(User, related_name='diarys')
 
     class Meta:
         database = db.database

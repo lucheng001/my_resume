@@ -31,8 +31,11 @@ def config_blueprint(app):
     from .user import bpUser as userBlueprint
     app.register_blueprint(userBlueprint, url_prefix='/user')
 
-    from .project import  bpProject as projectBlueprint
+    from .project import bpProject as projectBlueprint
     app.register_blueprint(projectBlueprint, url_prefix='/project')
+
+    from .diary import bpDiary as diaryBlueprint
+    app.register_blueprint(diaryBlueprint, url_prefix='/diary')
 
 
 def configure_template_filters(app):

@@ -1,90 +1,55 @@
 {% extends 'show/show_base.html' %}
 
 {% block content_body %}
-    <div id="menu-3" class="gallery-section">
+    <div class="gallery-section">
         <div class="box-content">
-            <h3 class="widget-title">Past Projects</h3>
             <div class="row">
                 <div class="col-md-4 col-sm-6 col-xs-12">
+                    <h3 class="widget-title">Photos</h3>
                     <div class="project-item">
                         <img src="{{ url_for('static', filename='images/1.jpg') }}" alt="">
                         <div class="project-hover">
                             <h4>Great Nature Capture</h4>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-4 col-sm-6 col-xs-12">
                     <div class="project-item">
                         <img src="{{ url_for('static', filename='images/2.jpg') }}" alt="">
                         <div class="project-hover">
                             <h4>Another Image Caption</h4>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-4 col-sm-6 col-xs-12">
                     <div class="project-item">
                         <img src="{{ url_for('static', filename='images/3.jpg') }}" alt="">
                         <div class="project-hover">
-                            <h4>Great Nature Capture</h4>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6 col-xs-12">
-                    <div class="project-item">
-                        <img src="{{ url_for('static', filename='images/4.jpg') }}" alt="">
-                        <div class="project-hover">
                             <h4>Another Image Caption</h4>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-4 col-sm-6 col-xs-12">
-                    <div class="project-item">
-                        <img src="{{ url_for('static', filename='images/5.jpg') }}" alt="">
-                        <div class="project-hover">
-                            <h4>Great Nature Capture</h4>
-                        </div>
+                    <div class="text-center">
+                        <ul>
+                            <li><a href="#" class="fa fa-refresh"></a></li>
+                        </ul>
                     </div>
                 </div>
-                <div class="col-md-4 col-sm-6 col-xs-12">
-                    <div class="project-item">
-                        <img src="{{ url_for('static', filename='images/6.jpg') }}" alt="">
-                        <div class="project-hover">
-                            <h4>Another Image Caption</h4>
+                <div class="col-md-8 col-sm-6 col-xs-12">
+                    <h3 class="widget-title">It's my life ! <a href="{{ url_for('bpDiary.addDiary') }}" class="fa fa-pencil"></a></h3>
+                    {% for diary in diarys %}
+                         <div class="project-item">
+                            <label>
+                                {{ diary.body }}
+                            </label>
+                            <p>{{ diary.createTime }}</p>
                         </div>
+                    {% endfor %}
+                    <div class="project-pages">
+                        <ul>
+                            <li><a href="#" class="fa fa-arrow-left"></a> </li>
+                            <li><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#" class="fa fa-arrow-right"></a> </li>
+                        </ul>
                     </div>
                 </div>
-                <div class="col-md-4 col-sm-6 col-xs-12">
-                    <div class="project-item">
-                        <img src="{{ url_for('static', filename='images/4.jpg') }}" alt="">
-                        <div class="project-hover">
-                            <h4>Another Image Caption</h4>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6 col-xs-12">
-                    <div class="project-item">
-                        <img src="{{ url_for('static', filename='images/5.jpg') }}" alt="">
-                        <div class="project-hover">
-                            <h4>Great Nature Capture</h4>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6 col-xs-12">
-                    <div class="project-item">
-                        <img src="{{ url_for('static', filename='images/6.jpg') }}" alt="">
-                        <div class="project-hover">
-                            <h4>Another Image Caption</h4>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="project-pages">
-                <ul>
-                    <li><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">...</a></li>
-                </ul>
             </div>
         </div>
     </div>
