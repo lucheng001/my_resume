@@ -47,7 +47,7 @@
                             </div>
                             <div class="col-md-4">
                                 <p>{{ diary.createTime }}</p>
-                                <a href="#" class="fa fa-trash"></a>
+                                <a href="{{ url_for('bpDiary.delectDiary', diaryId=diary.id) }}" class="fa fa-trash"></a>
                             </div>
                         </div>
                         <br>

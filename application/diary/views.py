@@ -1,8 +1,10 @@
 # -*- coding: utf-8 -*-
 
 import os
-from flask import render_template, url_for, redirect, flash, current_app
+import shutil
+from flask import render_template, url_for, redirect, flash, current_app, abort
 from flask_login import current_user, login_required
+from playhouse.flask_utils import get_object_or_404
 from werkzeug.utils import secure_filename
 from ..models import User, Diary
 from .forms import addDiaryForm, addDiaryDataForm
@@ -62,3 +64,19 @@ def addDiary():
         Diary.create(**diaryDic)
         return redirect(url_for('bpShow.gallery'))
     return render_template('show/diary/addDiary.html', form=form)
+
+@bpDiary.route('/rmDiary/<int:diaryId>', methods=['GET'])
+@login_required
+def delectDiary(diaryId):
+    diary = get_object_or_404(Diary, Diary.id == diaryId)
+    if not current_user.id == diary.author.id:
+        abort(403)
+
+    photoPath = current_app.config['APP_STATIC_DIR']
+    photoName = diary.photoURL
+    filePath = os.path.join(photoPath, photoName)
+    if os.path.isfile(filePath):
+        os.remove(filePath)
+
+    diary.delete_instance()
+    return redirect(url_for('bpShow.gallery'))
