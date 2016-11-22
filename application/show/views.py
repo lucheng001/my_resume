@@ -6,10 +6,6 @@ from flask_login import current_user
 from ..models import User, Project, Diary
 from . import bpShow
 
-@bpShow.route('/home')
-def home():
-    return render_template('show/home.html')
-
 @bpShow.route('/info')
 def info():
     try:
@@ -41,3 +37,7 @@ def gallery():
 @bpShow.route('/contact')
 def contact():
     return render_template('show/contact.html')
+
+@bpShow.route('/resume')
+def resume():
+    return render_template('show/resume.html')

@@ -5,7 +5,7 @@ from . import bpMain
 
 @bpMain.route('/')
 def index():
-    return redirect(url_for('bpShow.home'))
+    return redirect(url_for('bpShow.info'))
 
 @bpMain.app_errorhandler(404)
 def error404(error):

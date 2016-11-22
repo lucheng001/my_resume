@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
+<head>
+    <title>My resume</title>
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Global CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <!-- Plugins CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome.css') }}">
+
+    <!-- Theme CSS -->
+    <link id="theme-style" rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="sidebar-wrapper">
+            <div class="profile-container">
+                <a href="{{ url_for('bpShow.info') }}"><img class="profile" src="{{ url_for('static', filename='images/me.jpg') }}" alt="" /></a>
+                <h1 class="name">鲁成</h1>
+                <h3 class="tagline">Web后端开发工程师</h3>
+                <h5>1996-01-27</h5>
+            </div><!--//profile-container-->
+
+            <div class="contact-container container-block">
+                <ul class="list-unstyled contact-list">
+                    <li class="email"><i class="fa fa-envelope"></i><p>lc@960127@gmail.com</p></li>
+                    <li class="phone"><i class="fa fa-phone"></i><p>184-8730-0572</p></li>
+                    <li><i class="fa fa-bitbucket"></i><a href="https://bitbucket.org/lucheng0127">bitbucket.org/lucheng0127</a></li>
+                    <li><i class="fa fa-wechat"></i><a href="#" target="_blank">LC_WeChat_0127</a></li>
+                    <li class="github"><i class="fa fa-github"></i><a href="https://github.com/lucheng001/" target="_blank">github.com/lucheng001</a></li>
+                </ul>
+            </div><!--//contact-container-->
+            <div class="education-container container-block">
+                <h2 class="container-block-title">Education</h2>
+                <div class="item">
+                    <h4 class="degree">专业:通信工程</h4>
+                    <h5 class="meta">西南林业大学</h5>
+                    <div class="time">2014入学</div>
+                </div><!--//item-->
+            </div><!--//education-container-->
+
+            <div class="languages-container container-block">
+                <h2 class="container-block-title">Languages</h2>
+                <ul class="list-unstyled interests-list">
+                    <li>Chinese <span class="lang-desc">(Native)</span></li>
+                    <li>English <span class="lang-desc">(Just so so)</span></li>
+                </ul>
+            </div><!--//interests-->
+
+            <div class="interests-container container-block">
+                <h2 class="container-block-title">Interests</h2>
+                <ul class="list-unstyled interests-list">
+                    <li>KickBoxing</li>
+                    <li>Swimming</li>
+                    <li>Rock Climbing</li>
+                </ul>
+            </div><!--//interests-->
+
+        </div><!--//sidebar-wrapper-->
+
+        <div class="main-wrapper">
+
+            <section class="section summary-section">
+                <h2 class="section-title"><i class="fa fa-user"></i>求职意向</h2>
+                <div class="summary">
+                    <p>
+                        <p><b>目标职能：</b>Web后端开发工程师</p>
+                        <p><b>工作性质：</b>实习</p>
+                        <p><b>希望行业：</b>互联网科技公司</p>
+                        <p><b>期望月薪：</b>面议</p>
+                    </p>
+                </div><!--//summary-->
+            </section><!--//section-->
+
+            <section class="section experiences-section">
+                <h2 class="section-title"><i class="fa fa-briefcase"></i>相关经验</h2>
+
+                <div class="item">
+                    <div class="meta">
+                        <div class="upper-row">
+                            <h3 class="job-title">使用Python & Flask进行Web开发</h3>
+                            <div class="time">2016-06 - Present</div>
+                        </div><!--//upper-row-->
+                        <div class="company">SWFU</div>
+                    </div><!--//meta-->
+                    <div class="details">
+                        <p>开始独立使用Flask框架进行Web开发，首先自己开发了一个microblog系统来熟悉Flask常用拓展未使用Bootstrap
+                            所以界面较丑（代码位于<a href="https://github.com/lucheng001/" target="_blank">GitHub</a>）。</p>
+                        <p>之后协助老师完成学院信息管理系统（narwhal），前端界面通过修改Bootstrap后台模板，通过模仿老师之前代码独立为此系统添加
+                        了毕业论文部分功能。期间现学现卖巩固了对Flask的掌握，并开始使用PostgreSQL数据库，和Bootstrap，并因此确定了
+                        代码风格。由于此系统现已在本校计算机学院使用所有代码位于<a href="https://bitbucket.org/lucheng0127">Bitbucket</a>的私有仓库，暂不对外开放。</p>
+                        <p>
+                            至现在（2016-11-22）独立使用Flask框架为自己编写Web简历管理系统，其中暂不支持注册用户，通过脚步写入用户，
+                            内容包括用户基本信息展示，自我简历，已经类似于QQ空间的博客区，还有项目经验展示区（用于添加项目经历并上传
+                            项目总结，以供大家下载预览）本系统所有代码位于<a href="https://bitbucket.org/lucheng0127">Bitbucket</a>的Public仓库。
+                        </p>
+                    </div><!--//details-->
+                </div><!--//item-->
+
+                <div class="item">
+                    <div class="meta">
+                        <div class="upper-row">
+                            <h3 class="job-title">使用配置及使用Linux</h3>
+                            <div class="time">2014 - Present</div>
+                        </div><!--//upper-row-->
+                        <div class="company">SWFU</div>
+                    </div><!--//meta-->
+                    <div class="details">
+                        <p>
+                            2014年大学入校开始接触使用Linux系统，期间首先使用Debian系，由于Debian系源经常出现版本冲突所有后使用一段
+                            时间OpenSUSE，但OpenSUSE系统比较慢所有后使用过3个月FreeBSD（完美的服务系统），但由于自成一套体系软件不
+                            如Linux多于是开始使用ArchLinux至今（完美的PC端系统）。
+                            期间自己配置过许多开发环境和部分服务。能较熟悉配置系统及服务。
+                        </p>
+                    </div><!--//details-->
+                </div><!--//item-->
+
+                <div class="item">
+                    <div class="meta">
+                        <div class="upper-row">
+                            <h3 class="job-title">单片机:</h3>
+                            <div class="time">2014 - 2015</div>
+                        </div><!--//upper-row-->
+                        <div class="company">SWFU</div>
+                    </div><!--//meta-->
+                    <div class="details">
+                        <p>
+                            刚入大学由于喜欢DIY所有自学单片机，期间完成过一套射频卡打卡系统。
+                        </p>
+                    </div><!--//details-->
+                </div><!--//item-->
+
+                <div class="item">
+                    <div class="meta">
+                        <div class="upper-row">
+                            <h3 class="job-title">Other:</h3>
+                            <div class="time"></div>
+                        </div><!--//upper-row-->
+                        <div class="company">SWFU</div>
+                    </div><!--//meta-->
+                    <div class="details">
+                        <p>
+                            期间接触过一下Android开发以及Docker，但并未深入学习，Docker有机会打算深入学习一下。
+                        </p>
+                    </div><!--//details-->
+                </div><!--//item-->
+
+            </section><!--//section-->
+
+            <section class="section projects-section">
+                <h2 class="section-title"><i class="fa fa-archive"></i>项目经历</h2>
+                <div class="intro">
+                    <p>此项目经历并非学校平时上课的练习内容。</p>
+                </div><!--//intro-->
+                <div class="item">
+                    <span class="project-title"><a href="#" target="_blank">narwhal</a></span> -
+                    <span class="project-tagline">计算机学院内部信息管理系统，为了方便学院信息发布，课程安排以及教学文件上传管理等
+                    制作的一套管理系统。其中包括课程，实习，公告，毕业论文的发布选课选题，所需材料的上传及下载，信息列表的筛选等功能，
+                    用户暂不支持对外注册，通过脚本添加，其中不同职位对应不同的权限以进行功能分配。（此系统由计算机学院某老师先构建，
+                    然后我负责完赛毕业论文部分的功能，其中包括学院领导根据学生选题情况添加学生论文，教师显示自己所指导的学生的毕业，并
+                    为其上传所需的材料，教研室主任查看本教研室的论文选题情况及选题，教学秘书及学院领导可进行增删论文。其中每个学生拥有
+                    独立的文件夹以存放材料。）</span>
+                </div><!--//item-->
+                <div class="item">
+                    <span class="project-title"><a href="#" target="_blank">Web Resume System</a></span> -
+                    <span class="project-tagline">为自己写的一套类似与博客的简历系统，以此更好的展示自己的技能及生活。基于Flask
+                    为框架，PostgreSQL为数据库，Bootstrap模板。其中包括照片墙的展示，类似与QQ空间的博客展示，项目经历和项目总结（
+                    用户可下载）已经自己的Web求职简历，其中只添加了Admin和lc用户，暂不对支持注册。其中测试时部署是通过ngrok把本机地
+                    址及端口映射到某免费的公网地址<a href="http://wolfsly.ngrok.cc">wolfsly.ngrok.cc</a> (感谢sunny的免费ngrok隧道）。</span>
+                </div><!--//item-->
+            </section><!--//section-->
+
+            <section class="skills-section section">
+                <h2 class="section-title"><i class="fa fa-rocket"></i>技能结构</h2>
+                <div class="skillset">
+                    <div class="item">
+                        <h3 class="level-title">Python &amp; Flask</h3>
+                        <div class="level-bar">
+                            <div class="level-bar-inner" style="width: 80%;">
+                            </div>
+                        </div><!--//level-bar-->
+                    </div><!--//item-->
+
+                    <div class="item">
+                        <h3 class="level-title">HTML5 &amp; CSS</h3>
+                        <div class="level-bar">
+                            <div class="level-bar-inner" style="width: 60%;">
+                            </div>
+                        </div><!--//level-bar-->
+                    </div><!--//item-->
+
+                    <div class="item">
+                        <h3 class="level-title">Linux &amp; Unix</h3>
+                        <div class="level-bar">
+                            <div class="level-bar-inner" style="width: 70%;">
+                            </div>
+                        </div><!--//level-bar-->
+                    </div><!--//item-->
+
+                    <div class="item">
+                        <h3 class="level-title">Javascript &amp; jQuery</h3>
+                        <div class="level-bar">
+                            <div class="level-bar-inner" style="width: 20%;">
+                            </div>
+                        </div><!--//level-bar-->
+                    </div><!--//item-->
+
+                    <div class="item">
+                        <h3 class="level-title">PostgreSQL</h3>
+                        <div class="level-bar">
+                            <div class="level-bar-inner" style="width: 50%;">
+                            </div>
+                        </div><!--//level-bar-->
+                    </div><!--//item-->
+
+                </div>
+            </section><!--//skills-section-->
+
+        </div><!--//main-body-->
+    </div>
+
+    <footer class="footer">
+        <div class="text-center">
+                <small class="copyright">Copyright &copy; 2016 lucheng  |  mail: lc960127@gmail.com  |   WeChat:  LC_WeChat_0127   |  Bitbucket: <a href="https://bitbucket.org/lucheng0127">https://bitbucket.org/lucheng0127</a></small>
+        </div><!--//container-->
+    </footer><!--//footer-->
+
+    <!-- Javascript -->
+    <script type="text/javascript" src="{{ url_for('static', filename='js/jquery-1.11.3.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+    <!-- custom js -->
+    <script type="text/javascript" src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
+
