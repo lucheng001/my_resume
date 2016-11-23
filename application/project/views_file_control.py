@@ -2,8 +2,8 @@
 
 import os
 import shutil
-from flask import render_template, redirect, url_for, flash, current_app, send_from_directory
-from flask_login import login_required
+from flask import render_template, redirect, url_for, flash, current_app, send_from_directory, abort
+from flask_login import login_required, current_user
 from werkzeug.utils import secure_filename
 from playhouse.flask_utils import get_object_or_404
 from urllib import quote
@@ -49,3 +49,18 @@ def download(projectId):
     encodeZipName = quote(zipName.encode('UTF-8'))
     zipPath = current_app.config['APP_ARCHIVE_DIR']
     return send_from_directory(zipPath, zipName, as_attachment=True, attachment_filename=encodeZipName)
+
+@bpProject.route('/delete/<int:projectId>', methods=['GET', 'POST'])
+@login_required
+def delete(projectId):
+    project = get_object_or_404(Project, Project.id == projectId)
+    if not current_user.id == project.author.id:
+        abort(403)
+
+    projectDir = u'{}'.format(project.author.chinesename)
+    fileDir = u'{}'.format(project.name)
+    filePath = os.path.join(current_app.config['APP_PROJECT_DIR'], projectDir, fileDir)
+    if os.path.isdir(filePath):
+        shutil.rmtree(filePath)
+    project.delete_instance()
+    return redirect(url_for('bpShow.info'))
