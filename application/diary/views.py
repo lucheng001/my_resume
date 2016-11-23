@@ -72,11 +72,12 @@ def delectDiary(diaryId):
     if not current_user.id == diary.author.id:
         abort(403)
 
-    photoPath = current_app.config['APP_STATIC_DIR']
-    photoName = diary.photoURL
-    filePath = os.path.join(photoPath, photoName)
-    if os.path.isfile(filePath):
-        os.remove(filePath)
+    if diary.havePhoto:
+        photoPath = current_app.config['APP_STATIC_DIR']
+        photoName = diary.photoURL
+        filePath = os.path.join(photoPath, photoName)
+        if os.path.isfile(filePath):
+            os.remove(filePath)
 
     diary.delete_instance()
     return redirect(url_for('bpShow.gallery'))
