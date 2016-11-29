@@ -37,6 +37,8 @@ def config_blueprint(app):
     from .diary import bpDiary as diaryBlueprint
     app.register_blueprint(diaryBlueprint, url_prefix='/diary')
 
+    from .resume import bpResume as resumeBlueprint
+    app.register_blueprint(resumeBlueprint, url_prefix='/resume')
 
 def configure_template_filters(app):
     """Configures the template filters."""

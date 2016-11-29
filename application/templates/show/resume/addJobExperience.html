@@ -1,0 +1,39 @@
+{% extends'base.html' %}
+
+{% block page_content %}
+    <div class="logo-holder logo-top-margin">
+        <a href="{{ url_for('bpShow.resume') }}" class="site-brand"><img src="{{ url_for('static', filename='images/logo.jpg') }}"></a>
+    </div>
+    <div class="container">
+        <div class="row">
+            {% with messages = get_flashed_messages(with_categories = True) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <span class="text-danger"><b>{{ category }}:</b>{{ message }}</span>
+            {% endfor %}
+        {% endif %}
+        {% endwith %}
+        <form class="subscribe-form" action="{{ url_for('bpResume.addJExperience') }}" method="post">
+            {{ form.csrf_token }}
+            <div class="col-md-12">
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                    <label>Add your job experience</label>
+                </div>
+            </div>
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <label>主题:</label>
+                <input type="text" class="email" name="theme" placeholder="主题">
+                <label>时间:</label>
+                <input type="text" class="email" name="time" placeholder="时间">
+                <label>地点:</label>
+                <input type="text" class="email" name="location" placeholder="地点">
+                <label>描述:</label>
+                <textarea name="body" rows="5" class="form-control" required></textarea>
+                <input type="submit" class="button default" value="Add">
+            </div>
+        </form>
+        </div>
+    </div>
+{% endblock %}

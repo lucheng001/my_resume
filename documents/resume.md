@@ -1,3 +1,4 @@
+'''
 <!DOCTYPE html>
 <!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
 <!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
@@ -71,43 +72,81 @@
         <div class="main-wrapper">
 
             <section class="section summary-section">
-                <h2 class="section-title"><i class="fa fa-user"></i>求职意向{% if current_user.is_authenticated %}<a href="{{ url_for('bpResume.addJProfile') }}" class="fa fa-plus"></a>{% endif %}</h2>
+                <h2 class="section-title"><i class="fa fa-user"></i>求职意向{% if current_user.is_authenticated %}<a href="#" class="fa fa-pencil"></a> {% endif %}</h2>
                 <div class="summary">
                     <p>
-                        {% for jobProfile in jobProfiles %}
-                            {% if current_user.is_authenticated %}
-                            <a href="{{ url_for('bpResume.editJProfile', jobProfileId=jobProfile.id) }}" class="fa fa-pencil"></a>
-                            {% endif %}
-                            <p><b>目标职能：</b>{{ jobProfile.job }}</p>
-                            <p><b>工作性质：</b>{{ jobProfile.jobType }}</p>
-                            <p><b>期望月薪：</b>{{ jobProfile.salary }}</p>
-                        {% endfor %}
+                        <p><b>目标职能：</b>Web后端开发工程师</p>
+                        <p><b>工作性质：</b>实习</p>
+                        <p><b>希望行业：</b>互联网科技公司</p>
+                        <p><b>期望月薪：</b>面议</p>
                     </p>
                 </div><!--//summary-->
             </section><!--//section-->
 
             <section class="section experiences-section">
-                <h2 class="section-title"><i class="fa fa-briefcase"></i>相关经验{% if current_user.is_authenticated %}<a href="{{ url_for('bpResume.addJExperience') }}" class="fa fa-plus"></a>{% endif %}</h2>
-                {% for jobExperience in jobExperiences %}
-                    <div class="item">
-                        <div class="meta">
-                            <div class="upper-row">
-                                <h3 class="job-title">{{ jobExperience.theme }}</h3>
-                                <div class="time">{{ jobExperience.time }}</div>
-                            </div><!--//upper-row-->
-                            <div class="company">{{ jobExperience.location }}</div>
-                        </div><!--//meta-->
-                        <div class="details">
-                            <p>
-                                {{ jobExperience.body }}
-                            </p>
-                        </div><!--//details-->
-                    </div><!--//item-->
-                {% endfor %}
+                <h2 class="section-title"><i class="fa fa-briefcase"></i>相关经验{% if current_user.is_authenticated %}<a href="#" class="fa fa-pencil"></a> {% endif %}</h2>
+
+                <div class="item">
+                    <div class="meta">
+                        <div class="upper-row">
+                            <h3 class="job-title">使用Python & Flask进行Web开发</h3>
+                            <div class="time">2016-05 - Present</div>
+                        </div><!--//upper-row-->
+                        <div class="company">SWFU</div>
+                    </div><!--//meta-->
+                    <div class="details">
+                        <p>
+                            在学习Python & Flask中我一直以实践为主，看书为辅的学习思路。期间首先为了熟悉Flask框架的基本结构和常用拓展
+                            自己写了一套microblog来边学变练，由于期初目的只是为了熟悉框架所以并未使用Bootstrap所以界面不太友好。
+                        </p>
+                        <p>
+                            之后与老师共同为学院写了一套信息管理系统，我负责毕业论文部分，期间通过模仿及自学成功的完成了此系统，并已成功
+                            投入使用，在此过程中确立了自己的代码风格，并积累了很多关于数据验证的和权限验证的经验。
+                        </p>
+                        <p>
+                            以及现在自己独立完成的半博客半简历管理系统，本着更好的体现自己的生活及IT技能的原因为自己编写的一套系统，其中功
+                            能完善，再一次巩固了自己对Python & Flask的使用，现已能熟练使用Python & Flask独立完成Web管理系统的编写与测试。
+                        </p>
+                    </div><!--//details-->
+                </div><!--//item-->
+
+                <div class="item">
+                    <div class="meta">
+                        <div class="upper-row">
+                            <h3 class="job-title">关于Linux</h3>
+                            <div class="time">2014 - Present</div>
+                        </div><!--//upper-row-->
+                        <div class="company">SWFU</div>
+                    </div><!--//meta-->
+                    <div class="details">
+                        <p>
+                            2014年大学入校开始接触使用Linux系统，期间先后接触过Debian系，OpenSUSE，FreeBSD和ArchLinux，其中Debian系源版本冲突频发，
+                            OpenSUSE特点不够鲜明，FreeBSD完美的服务端系统（软件不丰富，PC不太合适），ArchLinux完美的PC端OS，活跃的社区已经完善的ArchWiki
+                            至今使用。
+                            期间自己配置过许多开发环境和部分服务。能较熟悉配置系统及服务。
+                        </p>
+                    </div><!--//details-->
+                </div><!--//item-->
+
+                <div class="item">
+                    <div class="meta">
+                        <div class="upper-row">
+                            <h3 class="job-title">Other</h3>
+                            <div class="time">2015 - 2016</div>
+                        </div><!--//upper-row-->
+                        <div class="company">SWFU</div>
+                    </div><!--//meta-->
+                    <div class="details">
+                        <p>
+                            单片机做过一套FRID射频卡打卡系统。
+                        </p>
+                    </div><!--//details-->
+                </div><!--//item-->
+
             </section><!--//section-->
 
             <section class="section projects-section">
-                <h2 class="section-title"><i class="fa fa-archive"></i>项目经历{% if current_user.is_authenticated %}<a href="#" class="fa fa-plus"></a> {% endif %}</h2>
+                <h2 class="section-title"><i class="fa fa-archive"></i>项目经历{% if current_user.is_authenticated %}<a href="#" class="fa fa-pencil"></a> {% endif %}</h2>
                 <div class="intro">
                     <p>此项目经历指的是经过测试并可对外开放使用的项目，并非课堂上随便做做的那种。</p>
                 </div><!--//intro-->
@@ -187,3 +226,4 @@
 </body>
 </html>
 
+'''

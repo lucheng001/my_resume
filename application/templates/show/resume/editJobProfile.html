@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block page_content %}
+    <div class="logo-holder logo-top-margin">
+        <a href="{{ url_for('bpShow.resume') }}" class="site-brand"><img src="{{ url_for('static', filename='images/logo.jpg') }}"></a>
+    </div>
+    <div class="container">
+        <div class="row">
+            {% with messages = get_flashed_messages(with_categories = True) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <span class="text-danger"><b>{{ category }}:</b>{{ message }}</span>
+            {% endfor %}
+        {% endif %}
+        {% endwith %}
+        <form class="subscribe-form" action="{{ url_for('bpResume.editJProfile', jobProfileId=jobProfileId) }}" method="post">
+            {{ form.csrf_token }}
+            <div class="col-md-12">
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                    <label>Edit your job profile</label>
+                </div>
+            </div>
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <label>目标职能:</label>
+                <input type="text" class="email" name="job" placeholder="目标职能">
+                <label>工作类型:</label>
+                <input type="text" class="email" name="jobType" placeholder="工作类型">
+                <label>期望薪资:</label>
+                <input type="text" class="email" name="salary" placeholder="期望薪资">
+                <input type="submit" class="button default" value="Submit">
+            </div>
+        </form>
+        </div>
+    </div>
+{% endblock %}

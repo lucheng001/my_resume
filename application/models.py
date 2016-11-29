@@ -63,3 +63,42 @@ class Diary(Model):
 
     class Meta:
         database = db.database
+
+class JobProfile(Model):
+    id = PrimaryKeyField()
+    job = CharField()
+    jobType = CharField()
+    salary = CharField()
+    user = ForeignKeyField(User, related_name='jobProfiles', unique=True)
+
+    class Meta:
+        database = db.database
+
+class JobExperience(Model):
+    id = PrimaryKeyField()
+    theme = CharField()
+    time = CharField()
+    location = CharField()
+    body = TextField()
+    user = ForeignKeyField(User, related_name='jobExperiences')
+
+    class Meta:
+        database = db.database
+
+class ProjectExperience(Model):
+    id = PrimaryKeyField()
+    name = CharField()
+    body = TextField()
+    user = ForeignKeyField(User, related_name='projectExperiences')
+
+    class Meta:
+        database = db.database
+
+class ProjectStructure(Model):
+    id = PrimaryKeyField()
+    name = CharField()
+    CharField()
+    user = ForeignKeyField(User, related_name='projectStructures')
+
+    class Meta:
+        database = db.database
