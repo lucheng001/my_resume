@@ -92,7 +92,7 @@
                     <div class="item">
                         <div class="meta">
                             <div class="upper-row">
-                                <h3 class="job-title">{{ jobExperience.theme }}</h3>
+                                <h3 class="job-title">{{ jobExperience.theme }}{% if current_user.is_authenticated %}<a href="{{ url_for('bpResume.deleteJExperience', jExperienceId=jobExperience.id) }}" class="fa fa-trash"></a>{% endif %}</h3>
                                 <div class="time">{{ jobExperience.time }}</div>
                             </div><!--//upper-row-->
                             <div class="company">{{ jobExperience.location }}</div>
@@ -128,7 +128,7 @@
                 <h2 class="section-title"><i class="fa fa-rocket"></i>技能结构{% if current_user.is_authenticated %}<a href="#" class="fa fa-plus"></a> {% endif %}</h2>
                 <div class="skillset">
                     <div class="item">
-                        <h3 class="level-title">{% if current_user.is_authenticated %}<a href="#" class="fa fa-trash"></a> {% endif %}Python &amp; Flask</h3>
+                        <h3 class="level-title">{% if current_user.is_authenticated %}<a href="#" class="fa fa-trash"></a>{% endif %}Python &amp; Flask</h3>
                         <div class="level-bar">
                             <div class="level-bar-inner" style="width: 85%;">
                             </div>
